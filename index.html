@@ -6,11 +6,11 @@
   <title>Thông tin hàng hóa</title>
 </head>
 <body>
-  <h1>User Information</h1>
-  <p>Name: <span id="name"></span></p>
-  <p>Age: <span id="age"></span></p>
-  <p>Address: <span id="address"></span></p>
-
+  <h1>Thông tin hàng hóa</h1>
+  <p>Mã hàng hóa: <span id="mahh"></span></p>
+  <p>Tên hàng hóa: <span id="tenhh"></span></p>
+  <p>Đơn vị tính: <span id="dvt"></span></p>
+  <p>NCC ưu tiên: <span id="ncc"></span></p>
   <script>
     // Function to get URL parameters
     function getUrlParameter(name) {
@@ -21,14 +21,15 @@
     }
 
     // Get parameters from URL
-    var name = getUrlParameter('name');
-    var age = getUrlParameter('age');
-    var address = getUrlParameter('address');
-
+    var mahh = getUrlParameter('mahh');
+    var tenhh = getUrlParameter('tenhh');
+    var dvt = getUrlParameter('dvt');
+     var ncc = getUrlParameter('ncc');
     // Display parameters on the page
-    document.getElementById('name').textContent = name;
-    document.getElementById('age').textContent = age;
-    document.getElementById('address').textContent = address;
+    document.getElementById('mahh').textContent = mahh;
+    document.getElementById('tenhh').textContent = tenhh;
+    document.getElementById('dvt').textContent = dvt;
+     document.getElementById('ncc').textContent = ncc;
   </script>
 </body>
 </html>
