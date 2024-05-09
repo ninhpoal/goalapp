@@ -23,4 +23,4 @@ window.onload = function () {
 
 function printPage() {
     window.print();
-  }
+}
