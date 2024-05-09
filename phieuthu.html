@@ -59,25 +59,17 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="invoice-number mb-30">
-                      <h4 class="inv-title-1">Invoice To</h4>
-                      <h2 class="name"></h2>
-                      <p class="invo-addr-1">
-                        Theme Vessel <br />
-                        info@themevessel.com <br />
-                        21-12 Green Street, Meherpur, Bangladesh <br />
-                      </p>
+                      <h4 class="inv-title-1">Người nộp tiền</h4>
+                      <h2 class="name" id="nguoinop"></h2>
+                    
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="invoice-number mb-30">
                       <div class="invoice-number-inner">
-                        <h4 class="inv-title-1">Invoice From</h4>
-                        <h2 class="name">Animas Roky</h2>
-                        <p class="invo-addr-1">
-                          Apexo Inc <br />
-                          billing@apexo.com <br />
-                          169 Teroghoria, Bangladesh <br />
-                        </p>
+                        <h4 class="inv-title-1">Người nhận</h4>
+                        <h2 class="name" id="nguoinhan"></h2>
+                        
                       </div>
                     </div>
                   </div>
@@ -91,8 +83,7 @@
                         <th>STT.</th>
                         <th class="pl0 text-start">Nội dung</th>
                         <th class="text-center">Số tiền</th>
-                        <th class="text-center">Số lượng</th>
-                        <th class="text-end">Thành tiền</th>
+                    
                       </tr>
                     </thead>
                     <tbody>
@@ -104,8 +95,6 @@
                         </td>
                         <td class="pl0" id="noidung"></td>
                         <td class="text-center" id="sotien"></td>
-                        <td class="text-center">1</td>
-                        <td class="text-end" id="sotien"></td>
                       </tr>
                     </tbody>
                   </table>
@@ -170,15 +159,16 @@
         var ngaychungtu = getUrlParameter('ngaychungtu');
         var noidung = getUrlParameter('noidung');
         var sotien = getUrlParameter('sotien');
-
+        var nguoinop = getUrlParameter('nguoinop');
+        var nguoinhan = getUrlParameter('nguoinhan');
         // Display parameters on the page
         document.getElementById('phanloai').textContent = `Phiếu ${phanloai}`;
         document.getElementById('sochungtu').textContent = sochungtu;
         document.getElementById('ngaychungtu').textContent = ngaychungtu;
         document.getElementById('noidung').textContent = noidung;
         document.getElementById('sotien').textContent = sotien;
-
-
+        document.getElementById('nguoinop').textContent = nguoinop;
+        document.getElementById('nguoinhan').textContent = nguoinhan;
 
   </script>
   <script src="assets/js/jquery.min.js"></script>
