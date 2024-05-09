@@ -321,7 +321,7 @@ table th{
 }
 
 .invoice-1 .invoice-logo img {
-    height: 25px;
+    height: 100%;
 }
 
 .invoice-1 .table-section {
@@ -589,7 +589,7 @@ table th{
 
 .invoice-2 .invoice-logo .logo{
     width: 290px;
-    padding: 50px;
+    padding: 10px;
     clip-path: polygon(0 0, 100% 0, 100% 0%, 85% 100%, 0% 100%);
     height: 125px;
     z-index: 999;
@@ -597,7 +597,7 @@ table th{
 }
 
 .invoice-2 .invoice-logo img {
-    height: 25px;
+    height: 100px;
 }
 
 .invoice-2 .invoice-id .info {
