@@ -11,16 +11,19 @@ var mahh = getUrlParameter('mahh');
 var tenhh = getUrlParameter('tenhh');
 var dvt = getUrlParameter('dvt');
 var ncc = getUrlParameter('ncc');
+
 // Display parameters on the page
 document.getElementById('mahh').textContent = mahh;
 document.getElementById('tenhh').textContent = tenhh;
 document.getElementById('dvt').textContent = dvt;
 document.getElementById('ncc').textContent = ncc;
+
+// Print the page automatically when loaded
 window.onload = function () {
-    window.print();
+    printPage();
 };
 
-
+// Function to print the page
 function printPage() {
     window.print();
 }
