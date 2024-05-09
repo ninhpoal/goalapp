@@ -1,153 +1,217 @@
 <!DOCTYPE html>
-<html lang="vi">
-
+<html lang="zxx">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phiếu Thu</title>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
- 
-</head>
+    <title>DISEE - Invoice HTML5 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
+    <!-- External CSS libraries -->
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
+
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" >
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900">
+
+    <!-- Custom Stylesheet -->
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+</head>
 <body>
 
-  <div class="container">
-    <div class="col-md-12">
-      <div class="invoice">
-        <!-- begin invoice-company -->
-        <div class="invoice-company text-inverse f-w-600">
-          <span class="pull-right hidden-print">
-            <a href="javascript:;" class="btn btn-sm btn-white m-b-10 p-l-5"><i
-                class="fa fa-file t-plus-1 text-danger fa-fw fa-lg"></i> Xuất file PDF</a>
-            <a href="javascript:;" onclick="window.print()" class="btn btn-sm btn-white m-b-10 p-l-5"><i
-                class="fa fa-print t-plus-1 fa-fw fa-lg"></i> In</a>
-          </span>
-          Company Name, Inc
-        </div>
-        <!-- end invoice-company -->
-        <!-- begin invoice-header -->
-        <div class="invoice-header">
-          <div class="invoice-from">
-            <small>from</small>
-            <address class="m-t-5 m-b-5">
-              <strong class="text-inverse">Twitter, Inc.</strong><br>
-              Street Address<br>
-              City, Zip Code<br>
-              Phone: (123) 456-7890<br>
-              Fax: (123) 456-7890
-            </address>
-          </div>
-          <div class="invoice-to">
-            <small>to</small>
-            <address class="m-t-5 m-b-5">
-              <strong class="text-inverse">Company Name</strong><br>
-              Street Address<br>
-              City, Zip Code<br>
-              Phone: (123) 456-7890<br>
-              Fax: (123) 456-7890
-            </address>
-          </div>
-          <div class="invoice-date">
-            <small>Invoice / July period</small>
-            <div class="date text-inverse m-t-5">August 3,2012</div>
-            <div class="invoice-detail">
-              #0000123DSS<br>
-              Services Product
-            </div>
-          </div>
-        </div>
-        <!-- end invoice-header -->
-        <!-- begin invoice-content -->
-        <div class="invoice-content">
-          <!-- begin table-responsive -->
-          <div class="table-responsive">
-            <table class="table table-invoice">
-              <thead>
-                <tr>
-                  <th>TASK DESCRIPTION</th>
-                  <th class="text-center" width="10%">RATE</th>
-                  <th class="text-center" width="10%">HOURS</th>
-                  <th class="text-right" width="20%">LINE TOTAL</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <span class="text-inverse">Website design &amp; development</span><br>
-                    <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id sagittis arcu.</small>
-                  </td>
-                  <td class="text-center">$50.00</td>
-                  <td class="text-center">50</td>
-                  <td class="text-right">$2,500.00</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="text-inverse">Branding</span><br>
-                    <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id sagittis arcu.</small>
-                  </td>
-                  <td class="text-center">$50.00</td>
-                  <td class="text-center">40</td>
-                  <td class="text-right">$2,000.00</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="text-inverse">Redesign Service</span><br>
-                    <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id sagittis arcu.</small>
-                  </td>
-                  <td class="text-center">$50.00</td>
-                  <td class="text-center">50</td>
-                  <td class="text-right">$2,500.00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- end table-responsive -->
-          <!-- begin invoice-price -->
-          <div class="invoice-price">
-            <div class="invoice-price-left">
-              <div class="invoice-price-row">
-                <div class="sub-price">
-                  <small>SUBTOTAL</small>
-                  <span class="text-inverse">$4,500.00</span>
-                </div>
-                <div class="sub-price">
-                  <i class="fa fa-plus text-muted"></i>
-                </div>
-                <div class="sub-price">
-                  <small>PAYPAL FEE (5.4%)</small>
-                  <span class="text-inverse">$108.00</span>
-                </div>
-              </div>
-            </div>
-            <div class="invoice-price-right">
-              <small>TOTAL</small> <span class="f-w-600">$4508.00</span>
-            </div>
-          </div>
-          <!-- end invoice-price -->
-        </div>
-        <!-- end invoice-content -->
-        <!-- begin invoice-note -->
-        <div class="invoice-note">
-          * Make all cheques payable to [Your Company Name]<br>
-          * Payment is due within 30 days<br>
-          * If you have any questions concerning this invoice, contact [Name, Phone Number, Email]
-        </div>
-        <!-- end invoice-note -->
-        <!-- begin invoice-footer -->
-        <div class="invoice-footer">
-          <p class="text-center m-b-5 f-w-600">
-            THANK YOU FOR YOUR BUSINESS
-          </p>
-          <p class="text-center">
-            <span class="m-r-10"><i class="fa fa-fw fa-lg fa-globe"></i> matiasgallipoli.com</span>
-            <span class="m-r-10"><i class="fa fa-fw fa-lg fa-phone-volume"></i> T:016-18192302</span>
-            <span class="m-r-10"><i class="fa fa-fw fa-lg fa-envelope"></i> rtiemps@gmail.com</span>
-          </p>
-        </div>
-        <!-- end invoice-footer -->
-      </div>
-    </div>
-  </div>
-</body>
+<!-- Invoice 2 start -->
+<div class="invoice-2 invoice-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="invoice-inner clearfix">
+                    <div class="invoice-info clearfix" id="invoice_wrapper">
+                        <div class="invoice-headar">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="invoice-logo">
+                                        <!-- logo started -->
+                                        <div class="logo">
+                                            <img src="assets/img/logos/logo.png" alt="logo">
+                                        </div>
+                                        <!-- logo ended -->
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="invoice-id">
+                                        <div class="info">
+                                            <h1 class="inv-header-1">Invoice</h1>
+                                            <p class="mb-1">Invoice Number: <span>#45613</span></p>
+                                            <p class="mb-0">Invoice Date: <span>24 Jan 2022</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="invoice-top">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="invoice-number mb-30">
+                                        <h4 class="inv-title-1">Invoice To</h4>
+                                        <h2 class="name">Jhon Smith</h2>
+                                        <p class="invo-addr-1">
+                                            Theme Vessel <br/>
+                                            info@themevessel.com <br/>
+                                            21-12 Green Street, Meherpur, Bangladesh <br/>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="invoice-number mb-30">
+                                        <div class="invoice-number-inner">
+                                            <h4 class="inv-title-1">Invoice From</h4>
+                                            <h2 class="name">Animas Roky</h2>
+                                            <p class="invo-addr-1">
+                                                Apexo Inc  <br/>
+                                                billing@apexo.com <br/>
+                                                169 Teroghoria, Bangladesh <br/>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="invoice-center">
+                            <div class="table-responsive">
+                                <table class="table mb-0 table-striped invoice-table">
+                                    <thead class="bg-active">
+                                    <tr class="tr">
+                                        <th>No.</th>
+                                        <th class="pl0 text-start">Item Description</th>
+                                        <th class="text-center">Price</th>
+                                        <th class="text-center">Quantity</th>
+                                        <th class="text-end">Amount</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="tr">
+                                        <td>
+                                            <div class="item-desc-1">
+                                                <span>01</span>
+                                            </div>
+                                        </td>
+                                        <td class="pl0">Businesscard Design</td>
+                                        <td class="text-center">$300</td>
+                                        <td class="text-center">2</td>
+                                        <td class="text-end">$600.00</td>
+                                    </tr>
+                                    <tr class="bg-grea">
+                                        <td>
+                                            <div class="item-desc-1">
+                                                <span>02</span>
 
+                                            </div>
+                                        </td>
+                                        <td class="pl0">Fruit Flayer Design</td>
+                                        <td class="text-center">$400</td>
+                                        <td class="text-center">1</td>
+                                        <td class="text-end">$60.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="item-desc-1">
+                                                <span>03</span>
+                                            </div>
+                                        </td>
+                                        <td class="pl0">Application Interface Design</td>
+                                        <td class="text-center">$240</td>
+                                        <td class="text-center">3</td>
+                                        <td class="text-end">$640.00</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <div class="item-desc-1">
+                                                <span>04</span>
+                                            </div>
+                                        </td>
+                                        <td class="pl0">Theme Development</td>
+                                        <td class="text-center">$720</td>
+                                        <td class="text-center">4</td>
+                                        <td class="text-end">$640.00</td>
+                                    </tr>
+                                    <tr class="tr2">
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="text-center">SubTotal</td>
+                                        <td class="text-end">$710.99</td>
+                                    </tr>
+                                    <tr class="tr2">
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="text-center">Tax</td>
+                                        <td class="text-end">$85.99</td>
+                                    </tr>
+                                    <tr class="tr2">
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="text-center f-w-600 active-color">Grand Total</td>
+                                        <td class="f-w-600 text-end active-color">$795.99</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="invoice-bottom">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-5 col-sm-5">
+                                    <div class="payment-method mb-30">
+                                        <h3 class="inv-title-1">Payment Method</h3>
+                                        <ul class="payment-method-list-1 text-14">
+                                            <li><strong>Account No:</strong> 00 123 647 840</li>
+                                            <li><strong>Account Name:</strong> Jhon Doe</li>
+                                            <li><strong>Branch Name:</strong> xyz</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-7 col-sm-7">
+                                    <div class="terms-conditions mb-30">
+                                        <h3 class="inv-title-1">Terms & Conditions</h3>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy has</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="invoice-contact clearfix">
+                            <div class="row g-0">
+                                <div class="col-sm-12">
+                                    <div class="contact-info clearfix">
+                                        <a href="tel:+55-4XX-634-7071" class="d-flex"><i class="fa fa-phone"></i> +00 123 647 840</a>
+                                        <a href="tel:info@themevessel.com" class="d-flex"><i class="fa fa-envelope"></i> info@themevessel.com</a>
+                                        <a href="tel:info@themevessel.com" class="mr-0 d-flex d-none-580"><i class="fa fa-map-marker"></i> 169 Teroghoria, Bangladesh</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="invoice-btn-section clearfix d-print-none">
+                        <a href="javascript:window.print()" class="btn btn-lg btn-print">
+                            <i class="fa fa-print"></i> Print Invoice
+                        </a>
+                        <a id="invoice_download_btn" class="btn btn-lg btn-download btn-theme">
+                            <i class="fa fa-download"></i> Download Invoice
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Invoice 2 end -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jspdf.min.js"></script>
+<script src="assets/js/html2canvas.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
 </html>
