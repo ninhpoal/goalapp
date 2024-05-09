@@ -52,7 +52,7 @@
                         <p class="mb-0">Ngày chứng từ: <span id="ngaychungtu"></span></p>
                       </div>
                     </div>
-                  </div>
+                  </div>d
                 </div>
               </div>
               <div class="invoice-top">
@@ -61,7 +61,7 @@
                     <div class="invoice-number mb-30">
                       <h4 class="inv-title-1">Người nộp tiền</h4>
                       <h2 class="name" id="nguoinop"></h2>
-                    
+
                     </div>
                   </div>
                   <div class="col-sm-6">
@@ -69,7 +69,7 @@
                       <div class="invoice-number-inner">
                         <h4 class="inv-title-1">Người nhận</h4>
                         <h2 class="name" id="nguoinhan"></h2>
-                        
+
                       </div>
                     </div>
                   </div>
@@ -83,7 +83,7 @@
                         <th>STT.</th>
                         <th class="pl0 text-start">Nội dung</th>
                         <th class="text-center">Số tiền</th>
-                    
+
                       </tr>
                     </thead>
                     <tbody>
@@ -145,30 +145,30 @@
   </div>
   <!-- Invoice 2 end -->
   <script>
-     // Function to get URL parameters
-     function getUrlParameter(name) {
-            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-            var results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-        }
+    // Function to get URL parameters
+    function getUrlParameter(name) {
+      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
 
-        // Get parameters from URL
-        var phanloai = getUrlParameter('phanloai');
-        var sochungtu = getUrlParameter('sochungtu');
-        var ngaychungtu = getUrlParameter('ngaychungtu');
-        var noidung = getUrlParameter('noidung');
-        var sotien = getUrlParameter('sotien');
-        var nguoinop = getUrlParameter('nguoinop');
-        var nguoinhan = getUrlParameter('nguoinhan');
-        // Display parameters on the page
-        document.getElementById('phanloai').textContent = `Phiếu ${phanloai}`;
-        document.getElementById('sochungtu').textContent = sochungtu;
-        document.getElementById('ngaychungtu').textContent = ngaychungtu;
-        document.getElementById('noidung').textContent = noidung;
-        document.getElementById('sotien').textContent = sotien;
-        document.getElementById('nguoinop').textContent = nguoinop;
-        document.getElementById('nguoinhan').textContent = nguoinhan;
+    // Get parameters from URL
+    var phanloai = getUrlParameter('phanloai');
+    var sochungtu = getUrlParameter('sochungtu');
+    var ngaychungtu = getUrlParameter('ngaychungtu');
+    var noidung = getUrlParameter('noidung');
+    var sotien = getUrlParameter('sotien');
+    var nguoinop = getUrlParameter('nguoinop');
+    var nguoinhan = getUrlParameter('nguoinhan');
+    // Display parameters on the page
+    document.getElementById('phanloai').textContent = `Phiếu ${phanloai}`;
+    document.getElementById('sochungtu').textContent = sochungtu;
+    document.getElementById('ngaychungtu').textContent = ngaychungtu;
+    document.getElementById('noidung').textContent = noidung;
+    document.getElementById('sotien').textContent = sotien;
+    document.getElementById('nguoinop').textContent = nguoinop;
+    document.getElementById('nguoinhan').textContent = nguoinhan;
 
   </script>
   <script src="assets/js/jquery.min.js"></script>

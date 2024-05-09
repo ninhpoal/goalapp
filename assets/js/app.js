@@ -23,8 +23,9 @@ $(function () {
             for (var i = 1; i <= totalPDFPages; i++) {
                 pdf.addPage(pdfWidth, pdfHeight);
                 pdf.addImage(imgData, 'JPG', topLeftMargin, -(pdfHeight * i) + (topLeftMargin * 4), canvasImageWidth, canvasImageHeight);
-            }
-            pdf.save("sample-invoice.pdf");
+            } 
+            var aaaa = document.getElementById('sochungtu').textContent;  
+            pdf.save(aaaa+".pdf");
         });
     });
 })
