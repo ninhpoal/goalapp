@@ -1,11 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goal app</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Information</title>
 </head>
 <body>
-    <h1>Ninh Văn Phước</h1>
+  <h1>User Information</h1>
+  <p>Name: <span id="name"></span></p>
+  <p>Age: <span id="age"></span></p>
+  <p>Address: <span id="address"></span></p>
+
+  <script>
+    // Function to get URL parameters
+    function getUrlParameter(name) {
+      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Get parameters from URL
+    var name = getUrlParameter('name');
+    var age = getUrlParameter('age');
+    var address = getUrlParameter('address');
+
+    // Display parameters on the page
+    document.getElementById('name').textContent = name;
+    document.getElementById('age').textContent = age;
+    document.getElementById('address').textContent = address;
+  </script>
 </body>
 </html>
