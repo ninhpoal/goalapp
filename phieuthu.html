@@ -101,11 +101,11 @@
                           <div class="item-desc-1">
                             <span>01</span>
                           </div>
-                        </td> 
-                        <td class="pl0">Thanh toán hội phí</td>
-                        <td class="text-center">đ 300</td>
+                        </td>
+                        <td class="pl0" id="noidung"></td>
+                        <td class="text-center" id="sotien"></td>
                         <td class="text-center">1</td>
-                        <td class="text-end">đ 600.00</td>
+                        <td class="text-end" id="sotien"></td>
                       </tr>
                     </tbody>
                   </table>
@@ -123,7 +123,7 @@
                       </ul>
                     </div>
                   </div>
-                  
+
                 </div>
               </div>
               <div class="invoice-contact clearfix">
@@ -131,10 +131,10 @@
                   <div class="col-sm-12">
                     <div class="contact-info clearfix">
                       <a class="d-flex"><i class="fa fa-phone"></i> Hotline: 0879.555.655</a>
-                  
-                      <a  class="d-flex"><i class="fa fa-envelope"></i>
-                         hoidnthaibinhmiennam@gmail.com</a>
-                      <a  class="mr-0 d-flex d-none-580"><i class="fa fa-map-marker"></i>
+
+                      <a class="d-flex"><i class="fa fa-envelope"></i>
+                        hoidnthaibinhmiennam@gmail.com</a>
+                      <a class="mr-0 d-flex d-none-580"><i class="fa fa-map-marker"></i>
                         Địa chỉ: 175 Khuông Việt - Phường Phú Trung - Quận Tân Phú - Thành Phố Hồ Chí Minh</a>
                     </div>
                   </div>
@@ -155,7 +155,31 @@
     </div>
   </div>
   <!-- Invoice 2 end -->
+  <script>
+    // Function to get URL parameters
+    function getUrlParameter(name) {
+      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
 
+    // Get parameters from URL
+    var phanloai = getUrlParameter('phanloai');
+    var sochungtu = getUrlParameter('sochungtu');
+    var ngaychungtu = getUrlParameter('ngaychungtu');
+    var noidung = getUrlParameter('noidung');
+    var sotien = getUrlParameter('sotien');
+    // Display parameters on the page
+    document.getElementById('phanloai').textContent = `Phiếu `+phanloai;
+    document.getElementById('sochungtu').textContent = sochungtu;
+    document.getElementById('ngaychungtu').textContent = ngaychungtu;
+    document.getElementById('noidung').textContent = noidung;
+    document.getElementById('sotien').textContent = sotien;
+
+
+
+  </script>
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/jspdf.min.js"></script>
   <script src="assets/js/html2canvas.js"></script>
