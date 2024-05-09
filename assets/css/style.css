@@ -24,7 +24,7 @@ Version:    1.1.0
 }
 
 .invoice-content {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Times New Roman', serif;
     color: #535353;
     font-size: 14px;
 }
@@ -205,11 +205,11 @@ table th{
 }
 
 .btn-download {
-    background: #3965e3;
+    background: #dd825e;
 }
 
 .btn-download:after {
-    background: #325cd5;
+    background: #a7370b;
 }
 
 .btn-print{
@@ -558,7 +558,7 @@ table th{
 }
 
 .invoice-2 .inv-title-1{
-    color: #2672f9;
+    color: #c24310;
     margin-bottom: 5px;
 }
 
@@ -584,7 +584,7 @@ table th{
     top: 0;
     clip-path: polygon(0 0, 100% 0, 100% 0%, 90% 100%, 0% 100%);
     z-index: -9;
-    background-image: linear-gradient(to bottom, #0095ff, #4a50f3);
+    background-image: linear-gradient(to bottom, #e7827b, #a3300d);
 }
 
 .invoice-2 .invoice-logo .logo{
@@ -593,7 +593,7 @@ table th{
     clip-path: polygon(0 0, 100% 0, 100% 0%, 85% 100%, 0% 100%);
     height: 125px;
     z-index: 999;
-    background-image: linear-gradient(to bottom, #0095ff, #4a50f3);
+    background-image: linear-gradient(to bottom,  #e7827b, #a3300d);
 }
 
 .invoice-2 .invoice-logo img {
@@ -673,7 +673,7 @@ table th{
 }
 
 .invoice-2 .invoice-contact{
-    background-image: linear-gradient(to bottom, #0095ff, #4a50f3);
+    background-image: linear-gradient(to bottom, #e7827b, #a3300d);
     padding: 30px 50px 20px;
 }
 
@@ -693,7 +693,7 @@ table th{
     font-size: 20px;
     line-height: 50px;
     margin-right: 10px;
-    color: #2672f9;
+    color: #e0260e;
     border-radius: 60px;
 }
 
@@ -707,7 +707,7 @@ table th{
 
 .invoice-2 .inv-header-1 {
     font-weight: 600;
-    color: #2672f9;
+    color: #e0260e;
     font-size: 30px;
 }
 
