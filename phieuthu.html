@@ -156,26 +156,27 @@
   </div>
   <!-- Invoice 2 end -->
   <script>
-    // Function to get URL parameters
-    function getUrlParameter(name) {
-      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-      var results = regex.exec(location.search);
-      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-    }
+     // Function to get URL parameters
+     function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
 
-    // Get parameters from URL
-    var phanloai = getUrlParameter('phanloai');
-    var sochungtu = getUrlParameter('sochungtu');
-    var ngaychungtu = getUrlParameter('ngaychungtu');
-    var noidung = getUrlParameter('noidung');
-    var sotien = getUrlParameter('sotien');
-    // Display parameters on the page
-    document.getElementById('phanloai').textContent = `Phiếu `+phanloai;
-    document.getElementById('sochungtu').textContent = sochungtu;
-    document.getElementById('ngaychungtu').textContent = ngaychungtu;
-    document.getElementById('noidung').textContent = noidung;
-    document.getElementById('sotien').textContent = sotien;
+        // Get parameters from URL
+        var phanloai = getUrlParameter('phanloai');
+        var sochungtu = getUrlParameter('sochungtu');
+        var ngaychungtu = getUrlParameter('ngaychungtu');
+        var noidung = getUrlParameter('noidung');
+        var sotien = getUrlParameter('sotien');
+
+        // Display parameters on the page
+        document.getElementById('phanloai').textContent = `Phiếu ${phanloai}`;
+        document.getElementById('sochungtu').textContent = sochungtu;
+        document.getElementById('ngaychungtu').textContent = ngaychungtu;
+        document.getElementById('noidung').textContent = noidung;
+        document.getElementById('sotien').textContent = sotien;
 
 
 
