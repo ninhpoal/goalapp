@@ -158,6 +158,9 @@
     var sotien = getUrlParameter('sotien');
     var nguoinop = getUrlParameter('nguoinop');
     var nguoinhan = getUrlParameter('nguoinhan');
+    var stk = getUrlParameter('stk');
+    var ctk = getUrlParameter('ctk');
+    var nganhang = getUrlParameter('nganhang');
     // Display parameters on the page
     document.getElementById('phanloai').textContent = `Phiếu ${phanloai}`;
     document.getElementById('sochungtu').textContent = sochungtu;
@@ -166,7 +169,9 @@
     document.getElementById('sotien').textContent = sotien;
     document.getElementById('nguoinop').textContent = nguoinop;
     document.getElementById('nguoinhan').textContent = nguoinhan;
-
+    document.getElementById('stk').textContent = stk;
+    document.getElementById('ctk').textContent = ctk;
+    document.getElementById('nganhang').textContent = nganhang;
   </script>
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/jspdf.min.js"></script>
