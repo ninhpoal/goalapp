@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truyền và hiển thị JSON qua URL</title>
+</head>
+<body>
+    <table id="myTable" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên</th>
+                <th>Tuổi</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        // Lấy tham số từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const jsonData = urlParams.get('data');
+
+        // Chuyển đổi JSON thành đối tượng JavaScript
+        const dataObj = JSON.parse(jsonData);
+
+        // Hiển thị dữ liệu trong bảng
+        const tableBody = document.querySelector('#myTable tbody');
+        dataObj.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${item.age}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>

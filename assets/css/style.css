@@ -1839,7 +1839,7 @@ table th{
 }
 
 .invoice-7 .invoice-top .logo img {
-    height: 25px;
+    height: 200px;
 }
 
 .invoice-7 .invoice-top {
@@ -2002,7 +2002,7 @@ table th{
     }
 
     .invoice-7 .invoice-top .logo img {
-        height: 20px;
+        height: 20px;   
         margin-bottom: 5px;
     }
 
