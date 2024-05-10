@@ -20,21 +20,25 @@
     <script>
         // Lấy tham số từ URL
         const urlParams = new URLSearchParams(window.location.search);
-        const jsonData = urlParams.get('data');
+        const dataString = urlParams.get('data');
 
-        // Chuyển đổi JSON thành đối tượng JavaScript
-        const dataObj = JSON.parse(jsonData);
+        // Tách dữ liệu thành mảng các dòng
+        const dataRows = dataString.split(',');
 
         // Hiển thị dữ liệu trong bảng
         const tableBody = document.querySelector('#myTable tbody');
-        dataObj.forEach(item => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${item.id}</td>
-                <td>${item.name}</td>
-                <td>${item.age}</td>
+        dataRows.forEach(row => {
+            const rowData = row.split('|');
+            const id = rowData[0];
+            const name = rowData[1];
+            const age = rowData[2];
+            const tableRow = document.createElement('tr');
+            tableRow.innerHTML = `
+                <td>${id}</td>
+                <td>${name}</td>
+                <td>${age}</td>
             `;
-            tableBody.appendChild(row);
+            tableBody.appendChild(tableRow);
         });
     </script>
 </body>
