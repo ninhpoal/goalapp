@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>HDNTB Xem trước</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <!-- External CSS libraries -->
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
+
+    <!-- Favicon icon -->
+    <link rel="shortcut icon"
+        href="https://www.appsheet.com:443/fsimage.png?appid=4dc0f883-9c1c-4d4a-81aa-4bd7971b78dd&datasource=google&filename=DocId%3D1Q-DzzSK5wTHeK8QXExAKxXHHI0cTZ6pc&signature=4c1273f412297bd813f4b60a3ce84a4d8c0aa30e803762dc7b9fcfc1fa29a92d&tableprovider=google&userid=925719472"
+        type="image/x-icon">
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900">
+
+    <!-- Custom Stylesheet -->
+    <link type="text/css" rel="stylesheet" href="assets/css/potato.css">
+</head>
+
+<body>
+
+    <!-- Invoice 2 start -->
+    <div class="invoice-2 invoice-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="invoice-inner clearfix">
+                        <div class="invoice-info clearfix" id="invoice_wrapper">
+                            <div class="invoice-headar">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="invoice-logo">
+                                            <!-- logo started -->
+                                            <div class="logo">
+                                                <img src="assets/img/logos/potato.png" alt="logo">
+                                            </div>
+                                            <!-- logo ended -->
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="invoice-id">
+                                            <div class="info text-center">
+                                                <h1 class="inv-header-1">HÓA ĐƠN THANH TOÁN </h1>
+                                                <p class="mb-1 ">TUITION INVOICE </p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            </hr>
+                            <div class="invoice-top">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="invoice-number mb-30">
+                                            <h4 class="inv-title-1">Tên Học Sinh (Student Name) : <span id="namehs"></span> </h4>
+                                            <h4 class="inv-title-1">Ngày Thanh Toán (Date): <span id="ngaythanhtoan"></span> </h4>
+                                            <h4 class="inv-title-1">Phương Thức Thanh Toán (Payment Method):
+                                                <span id="phuongthuctt"></span>
+                                            </h4>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="invoice-number mb-30">
+                                            <div class="invoice-number-inner">
+                                                <h4 class="inv-title-1">Năm (Year): <span id="year"></span>
+                                                </h4>
+                                                <h4 class="inv-title-1">Tháng / Đợt (Month): <span id="month"></span> </h4>
+                                                <h4 class="inv-title-1">Chi Nhánh:
+                                                    <span id="chinhanh"></span>
+                                                </h4>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="invoice-center">
+                                <div class="table-responsive">
+                                    <table class="table mb-0 table-striped invoice-table">
+                                        <thead class="bg-active">
+                                            <tr class="tr">
+                                                <th>STT <br> (No) </th>
+                                                <th class="pl0 text-start">Tên Hàng Hóa / Dịch Vụ<br>(Name of Goods and
+                                                    services)</th>
+                                                <th class="pl0 text-start">Số Lượng<br>(Quantity)</th>
+                                                <th class="pl0 text-start">Đơn Giá<br>(Unit Price)</th>
+                                                <th class="pl0 text-start">Giảm Giá<br>(Discount)</th>
+                                                <th class="pl0 text-start">Thành Tiền<br>(Amount)</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="tr">
+                                                <td>
+                                                    <div class="item-desc-1">
+                                                        <span>01</span>
+                                                    </div>
+                                                </td>
+                                                <td class="pl0" id="masp"></td>
+                                                <td>
+                                                    <div class="item-desc-1">
+                                                        <span>01</span>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center" id="dongia"></td>
+                                                <td class="text-center" id="discount"></td>
+                                                <td class="text-center" id="amount"></td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr class="tr">
+                                                <td colspan="2">
+                                                    <div class="item-desc-1">
+                                                        Ghi Chú (Remark): <span id="ghicho"></span>
+                                                    </div>
+                                                </td>
+                                                <td colspan="4"> Tổng tiền thanh toán (Total Amount): <span
+                                                        id="totalamount"></span></td>
+
+
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="invoice-bottom">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-5 col-sm-5 ">
+                                      
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-5 col-sm-5 ">
+                                        <div class="payment-method mb-30">
+                                            <h3 class="inv-title-1">Người Lập Phiếu Ký Tên: </h3>
+                                           
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-5 col-sm-5 text-end">
+                                        <div class="payment-method mb-30">
+                                            <h3 class="inv-title-1">Phụ Huynh Ký Tên: </h3>
+                                           
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <br><br><br><br><br>
+                            <div class="invoice-bottom">
+                                <div class="row">
+                                    <div class="col-lg-8 col-md-5 col-sm-5">
+                                        <div class="payment-method mb-30">
+                                            <h3 class="inv-title-1">TRUNG TÂM ĐÀO TẠO NGOẠI NGỮ POTATO</h3>
+                                            <ul class="payment-method-list-1 text-14">
+                                                <li><strong>Mã số Thuế (Tax Code): </strong> 3702594053</li>
+                                                <li><strong>Địa chỉ (Address): :</strong>  37 Đường Ngô Quyền, Khu phố 6, Phường Phú Cường, 
+                                                    Thành phố Thủ Dầu Một, Tỉnh Bình Dương, Việt Nam
+                                                    </li>
+                                                <li><strong>Điện Thoại (Tel):</strong> 0918 671 981   Email: potatoenglishbd@gmail.com
+                                                </li>
+                                                <li>Số Tài Khoản (Bank Account): 0281000313476 - Vietcombank CN Bình Dương</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4 text-end">
+                                        <div class="invoice-logo ">
+                                            <!-- logo started -->
+                                            <div class="logo">
+                                                <img src="assets/img/logos/qr.png" alt="logo">
+                                            </div>
+                                            <!-- logo ended -->
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="invoice-btn-section clearfix d-print-none">
+                            <a href="javascript:window.print()" class="btn btn-lg btn-print">
+                                <i class="fa fa-print"></i> In phiếu
+                            </a>
+                            <a id="invoice_download_btn" class="btn btn-lg btn-download btn-theme">
+                                <i class="fa fa-download"></i> Tải về
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Invoice 2 end -->
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Get parameters from URL
+        var namehs = getUrlParameter('namehs');
+        var ngaythanhtoan = getUrlParameter('ngaythanhtoan');
+        var phuongthuctt = getUrlParameter('phuongthuctt');
+        var year = getUrlParameter('year');
+        var month = getUrlParameter('month');
+        var chinhanh = getUrlParameter('chinhanh');
+        var masp = getUrlParameter('masp');
+        var dongia = getUrlParameter('dongia');
+        var discount = getUrlParameter('discount');
+        var amount = getUrlParameter('amount');
+        // Display parameters on the page
+        document.getElementById('namehs').textContent = `${namehs}`;
+        document.getElementById('ngaythanhtoan').textContent = ngaythanhtoan;
+        document.getElementById('phuongthuctt').textContent = phuongthuctt;
+        document.getElementById('year').textContent = year;
+        document.getElementById('month').textContent = month;
+        document.getElementById('chinhanh').textContent = chinhanh;
+        document.getElementById('masp').textContent = masp;
+        document.getElementById('dongia').textContent = dongia;
+
+        document.getElementById('discount').textContent = discount;
+
+        document.getElementById('amount').textContent = amount;
+        document.getElementById('totalamount').textContent = amount;
+
+    </script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jspdf.min.js"></script>
+    <script src="assets/js/html2canvas.js"></script>
+   <script>$(function () {
+
+    'use strict';
+
+    /**
+     * Generating PDF from HTML using jQuery
+     */
+    $(document).on('click', '#invoice_download_btn', function () {
+        var contentWidth = $("#invoice_wrapper").width();
+        var contentHeight = $("#invoice_wrapper").height();
+        var topLeftMargin = 20;
+        var pdfWidth = contentWidth + (topLeftMargin * 2);
+        var pdfHeight = (pdfWidth * 1.5) + (topLeftMargin * 2);
+        var canvasImageWidth = contentWidth;
+        var canvasImageHeight = contentHeight;
+        var totalPDFPages = Math.ceil(contentHeight / pdfHeight) - 1;
+
+        html2canvas($("#invoice_wrapper")[0], {allowTaint: true}).then(function (canvas) {
+            canvas.getContext('2d');
+            var imgData = canvas.toDataURL("image/jpeg", 1.0);
+            var pdf = new jsPDF('p', 'pt', [pdfWidth, pdfHeight]);
+            pdf.addImage(imgData, 'JPG', topLeftMargin, topLeftMargin, canvasImageWidth, canvasImageHeight);
+            for (var i = 1; i <= totalPDFPages; i++) {
+                pdf.addPage(pdfWidth, pdfHeight);
+                pdf.addImage(imgData, 'JPG', topLeftMargin, -(pdfHeight * i) + (topLeftMargin * 4), canvasImageWidth, canvasImageHeight);
+            } 
+            var aaaa = document.getElementById('namehs').textContent;  
+            pdf.save(aaaa+".pdf");
+        });
+    });
+})
+</script>
+</body>
+
+</html>
