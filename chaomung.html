@@ -103,15 +103,17 @@
                 <img src="https://ninhpoal.github.io/goalapp/assets/img/logos/logo.png" alt="Hội Doanh Nhân Thái Bình Miền Nam">
                 <p>HỘI DOANH NHÂN THÁI BÌNH MIỀN NAM</p>
             </div>
-            <p>Dear <span id="name" ></span>,</p>
+            <p>Xin chúc mừng (Ông/Bà): <span id="name" ></span>,  <img id="logo" alt="Logo"></p>
             <p>Ngày sinh: <span id="ngaysinh"></span></p>
             <p>Tại: <span id="que"></span></p>
             <p>SĐT: <span id="sdt"></span> Chức vụ: <span id="chucvu"></span></p>
             <p><span id="congtys"></span></p>
+            <p>Trụ sở: <span id="truso"></span></p>
+            <p>Nhóm ngành nghề: <span id="nganhnghe"></span></p>
             <p>⚡ Đã trở thành Hội Viên chính thức - Hội Doanh Nhân Thái Bình Miền Nam vào: <span id="data"></span></p>
             <p>🌟 Chúc anh kết nối hiệu quả, kinh doanh thành công cùng các doanh nhân Thái Bình nhé.</p>
             <div class="footer">
-                <p>Địa chỉ: 175 Khuông Việt - Phường Phú Trung - Quận Tân Phú - Thành Phố Hồ Chí Minh</p>
+                <p>Văn phòng hội: 175 Khuông Việt - Phường Phú Trung - Quận Tân Phú - Thành Phố Hồ Chí Minh</p>
                 <p>Hotline: 0879.555.655</p>
                 <p>Email: hoidnthaibinhmiennam@gmail.com</p>
             </div>
@@ -126,7 +128,13 @@
           var results = regex.exec(location.search);
           return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         }
-    
+         var linkAnh = getUrlParameter('linkanh');
+
+        // Mã hóa lại đường dẫn URL
+        var encodedLinkAnh = encodeURIComponent(linkAnh);
+
+        // Cập nhật đường dẫn của hình ảnh trong thẻ img
+        document.getElementById('logo').src = decodeURIComponent(encodedLinkAnh);
         // Get parameters from URL
         var name = getUrlParameter('name');
         var ngaysinh = getUrlParameter('ngaysinh');
@@ -135,6 +143,8 @@
         var chucvu = getUrlParameter('chucvu');
         var congtys = getUrlParameter('congtys');
         var data = getUrlParameter('data');
+        var truso = getUrlParameter('truso');
+        var nganhnghe = getUrlParameter('nganhnghe');
         // Display parameters on the page
         document.getElementById('name').textContent = name;
         document.getElementById('ngaysinh').textContent = ngaysinh;
@@ -143,6 +153,8 @@
         document.getElementById('chucvu').textContent = chucvu;
         document.getElementById('congtys').textContent = congtys;
         document.getElementById('data').textContent = data;
+        document.getElementById('truso').textContent = truso;
+        document.getElementById('nganhnghe').textContent = nganhnghe;
     
       </script>
 </body>
