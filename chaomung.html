@@ -125,9 +125,9 @@
             var truso = getUrlParameter('truso');
             var nganhnghe = getUrlParameter('nganhnghe');
             var linkAnh = getUrlParameter('linkAnh');
-
+               var a = getUrlParameter('a');
             console.log("Parameters:", {name, ngaysinh, que, sdt, chucvu, congtys, data, truso, nganhnghe, linkAnh});
-
+            document.getElementById('a').textContent = a;
             document.getElementById('name').textContent = name;
             document.getElementById('ngaysinh').textContent = ngaysinh;
             document.getElementById('que').textContent = que;
@@ -151,7 +151,7 @@
         <div class="content">
             <div class="header">
                 <img src="https://ninhpoal.github.io/goalapp/assets/img/logos/logo.png" alt="Hội Doanh Nhân Thái Bình Miền Nam">
-                <p>THƯ CHÀO MỪNG HỘI VIÊN</p>
+                <p>THƯ CHÀO MỪNG HỘI VIÊN <span id="a"></span></p>
                  <p>HỘI DOANH NHÂN THÁI BÌNH MIỀN NAM</p>
             </div>
             <div class="info-container">
