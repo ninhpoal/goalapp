@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon"
-    href="https://www.appsheet.com:443/fsimage.png?appid=4dc0f883-9c1c-4d4a-81aa-4bd7971b78dd&datasource=google&filename=DocId%3D1Q-DzzSK5wTHeK8QXExAKxXHHI0cTZ6pc&signature=4c1273f412297bd813f4b60a3ce84a4d8c0aa30e803762dc7b9fcfc1fa29a92d&tableprovider=google&userid=925719472"
-    type="image/x-icon">
+        href="https://www.appsheet.com:443/fsimage.png?appid=4dc0f883-9c1c-4d4a-81aa-4bd7971b78dd&datasource=google&filename=DocId%3D1Q-DzzSK5wTHeK8QXExAKxXHHI0cTZ6pc&signature=4c1273f412297bd813f4b60a3ce84a4d8c0aa30e803762dc7b9fcfc1fa29a92d&tableprovider=google&userid=925719472"
+        type="image/x-icon">
     <title>Happy Birthday</title>
     <style>
         body {
@@ -15,6 +16,7 @@
             background: url('/hapy.png') no-repeat center center fixed;
             background-size: cover;
         }
+
         .container {
             width: 90%;
             max-width: 1200px;
@@ -28,6 +30,7 @@
             flex-direction: row;
             justify-content: space-between;
         }
+
         .left {
             flex: 1;
             display: flex;
@@ -37,6 +40,7 @@
             padding-right: 10px;
             border-right: 1px solid #ddd;
         }
+
         .right {
             flex: 1;
             padding-left: 10px;
@@ -44,66 +48,137 @@
             font-size: 1.2em;
             line-height: 1.6;
         }
+
         .footer {
             text-align: center;
             margin-top: 20px;
             font-size: 12px;
             color: #666;
         }
+
         .logo {
             width: 100%;
             max-width: 200px;
             margin-bottom: 20px;
         }
+
         .birthday-title {
             font-size: 4em;
             margin-bottom: 10px;
-            color: #b19a22; /* Vàng */
+            color: #b19a22;
+            /* Vàng */
         }
+
         .name {
             font-size: 2.5em;
             font-weight: bold;
-            color: #b70e0e; /* Đỏ */
+            color: #b70e0e;
+            /* Đỏ */
             margin-bottom: 40px;
         }
+
         .signature {
             margin-top: 20px;
             font-weight: bold;
         }
+
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
                 align-items: center;
             }
+
             .left {
                 padding: 0;
                 border: none;
                 text-align: center;
             }
+
             .right {
                 padding: 0;
                 border: none;
                 text-align: left;
             }
+
             .right {
                 padding-top: 20px;
             }
         }
+
+        #logo {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
     </style>
+    <script>
+        function captureContent() {
+            const content = document.querySelector('.content');
+            html2canvas(content, {
+                useCORS: true,
+                onclone: (clonedDoc) => {
+                    const images = clonedDoc.querySelectorAll('img');
+                    images.forEach(img => img.src = img.src);
+                }
+            }).then(canvas => {
+                const dataUrl = canvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.href = dataUrl;
+                link.download = 'content.png';
+                link.click();
+            }).catch(err => {
+                console.error('Error capturing content:', err);
+            });
+        }
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var name = getUrlParameter('name');
+
+            var linkAnh = getUrlParameter('linkAnh');
+
+
+            document.getElementById('name').textContent = name;
+
+            var encodedLinkAnh = encodeURIComponent(linkAnh);
+            var imageUrl = decodeURIComponent(encodedLinkAnh);
+            document.getElementById('logo').src = imageUrl;
+
+            console.log("Image URL:", imageUrl);
+        });
+    </script>
 </head>
+
 <body>
     <div class="container">
         <div class="left">
-            <img src="https://ninhpoal.github.io/goalapp/assets/img/logos/logo.png" alt="Logo" class="logo">
+
             <div class="birthday-title">Happy Birthday</div>
-            <div class="name">Nguyễn Thị Vân Anh</div>
+            <div class="name"><span id="nam e"></span></div>
+            <img id="logo" alt="Logo" src="">
         </div>
+
         <div class="right">
-            Nhân dịp sinh nhật Quý Hội viên, Hội Doanh Nhân Thái Bình miền Nam xin gửi lời chúc mừng tốt đẹp nhất. Hội luôn tự hào là ngôi nhà chung kết nối những doanh nhân có nguyên quán và/hoặc sống là người Thái Bình, cùng những người yêu mến và sẵn sàng hỗ trợ để Hội phát triển.
+            <br>
+            Nhân dịp sinh nhật Quý Hội viên, Hội Doanh Nhân Thái Bình miền Nam gửi lời chúc mừng tốt đẹp nhất. Hội luôn
+            tự hào là ngôi nhà chung kết nối những doanh nhân có nguyên quán và/hoặc sống là người Thái Bình, cùng những
+            người yêu mến và sẵn sàng hỗ trợ để Hội phát triển.
             <br><br>
-            Để chúc mừng sinh nhật, Ban Chấp Hành xin trân trọng gửi tặng Quý Hội viên món quà đặc biệt, được cung cấp bởi các thành viên trong Hội. Mỗi món quà không chỉ là sản phẩm chất lượng mà còn chứa đựng tình cảm đoàn kết và sự gắn bó của cộng đồng doanh nhân Thái Bình.
+            Để chúc mừng sinh nhật, Ban Chấp Hành trân trọng gửi tặng Quý Hội viên món quà đặc biệt, được cung cấp bởi
+            các thành viên trong Hội. Mỗi món quà không chỉ là sản phẩm chất lượng mà còn chứa đựng tình cảm đoàn kết và
+            sự gắn bó của cộng đồng doanh nhân Thái Bình.
             <br><br>
-            Chúng tôi xin chân thành cảm ơn Quý Hội viên vì những đóng góp và sự đồng hành cùng Hội. Kính chúc Quý Hội viên luôn dồi dào sức khỏe, hạnh phúc và thành công. Hy vọng món quà nhỏ này sẽ đem lại niềm vui và ký ức đẹp cho Quý vị trong ngày đầy ý nghĩa này.
+            Chúng tôi chân thành cảm ơn Quý Hội viên vì những đóng góp và sự đồng hành cùng Hội. Kính chúc Quý Hội viên
+            luôn dồi dào sức khỏe, hạnh phúc và thành công. Hy vọng món quà nhỏ này sẽ đem lại niềm vui và ký ức đẹp cho
+            Quý vị trong ngày đầy ý nghĩa này.
             <br><br>
             Trân trọng,
             <div class="footer">
@@ -114,4 +189,5 @@
         </div>
     </div>
 </body>
+
 </html>
