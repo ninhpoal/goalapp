@@ -19,7 +19,7 @@
             width: 100%;
             padding: 20px 0;
             background: url('https://ninhpoal.github.io/goalapp/assets/img/logos/logo.png') no-repeat center center;
-            background-size: contain;
+            
         }
         .content {
             width: 90%;
@@ -45,9 +45,25 @@
             color: #B22222;
             font-size: 1.2em;
         }
-        p {
+        .info-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .info-text {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .info-text p {
             line-height: 1.6;
             color: #333;
+        }
+        #logo {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
         .footer {
             text-align: center;
@@ -75,25 +91,59 @@
         function captureContent() {
             const content = document.querySelector('.content');
             html2canvas(content, {
-                useCORS: true, // Enable cross-origin image loading
+                useCORS: true,
                 onclone: (clonedDoc) => {
-                    // Ensure images are fully loaded in the cloned document
                     const images = clonedDoc.querySelectorAll('img');
                     images.forEach(img => img.src = img.src);
                 }
             }).then(canvas => {
-                // Convert the canvas to a data URL
                 const dataUrl = canvas.toDataURL('image/png');
-                // Create a link element
                 const link = document.createElement('a');
                 link.href = dataUrl;
                 link.download = 'content.png';
-                // Simulate a click on the link to trigger the download
                 link.click();
             }).catch(err => {
                 console.error('Error capturing content:', err);
             });
         }
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var name = getUrlParameter('name');
+            var ngaysinh = getUrlParameter('ngaysinh');
+            var que = getUrlParameter('que');
+            var sdt = getUrlParameter('sdt');
+            var chucvu = getUrlParameter('chucvu');
+            var congtys = getUrlParameter('congtys');
+            var data = getUrlParameter('data');
+            var truso = getUrlParameter('truso');
+            var nganhnghe = getUrlParameter('nganhnghe');
+            var linkAnh = getUrlParameter('linkAnh');
+               var a = getUrlParameter('a');
+            console.log("Parameters:", {name, ngaysinh, que, sdt, chucvu, congtys, data, truso, nganhnghe, linkAnh});
+            document.getElementById('a').textContent = a;
+            document.getElementById('name').textContent = name;
+            document.getElementById('ngaysinh').textContent = ngaysinh;
+            document.getElementById('que').textContent = que;
+            document.getElementById('sdt').textContent = sdt;
+            document.getElementById('chucvu').textContent = chucvu;
+            document.getElementById('congtys').textContent = congtys;
+            document.getElementById('data').textContent = data;
+            document.getElementById('truso').textContent = truso;
+            document.getElementById('nganhnghe').textContent = nganhnghe;
+
+            var encodedLinkAnh = encodeURIComponent(linkAnh);
+            var imageUrl = decodeURIComponent(encodedLinkAnh);
+            document.getElementById('logo').src = imageUrl;
+
+            console.log("Image URL:", imageUrl);
+        });
     </script>
 </head>
 <body>
@@ -101,49 +151,34 @@
         <div class="content">
             <div class="header">
                 <img src="https://ninhpoal.github.io/goalapp/assets/img/logos/logo.png" alt="Hội Doanh Nhân Thái Bình Miền Nam">
-                <p>HỘI DOANH NHÂN THÁI BÌNH MIỀN NAM</p>
+             
+                 <p>HỘI DOANH NHÂN THÁI BÌNH MIỀN NAM</p>
+                   <p>THƯ CHÀO MỪNG <span id="a"></span></p>
             </div>
-            <p>Dear <span id="name" ></span>,</p>
-            <p>Ngày sinh: <span id="ngaysinh"></span></p>
-            <p>Tại: <span id="que"></span></p>
-            <p>SĐT: <span id="sdt"></span> Chức vụ: <span id="chucvu"></span></p>
-            <p><span id="congtys"></span></p>
-            <p>⚡ Đã trở thành Hội Viên chính thức - Hội Doanh Nhân Thái Bình Miền Nam vào: <span id="data"></span></p>
-            <p>🌟 Chúc anh kết nối hiệu quả, kinh doanh thành công cùng các doanh nhân Thái Bình nhé.</p>
+            <div class="info-container">
+                <div class="info-text">
+                    <p>Xin chúc mừng Doanh nhân:<b> <span id="name"></span></b></p>
+                    <p>Ngày sinh: <b><span id="ngaysinh"></span></b></p>
+                    <p>Tại: <b><span id="que"></span></b></p>
+                    <p>SĐT: <span id="sdt"></span> Chức vụ: <span id="chucvu"></span></p>
+                    <p><span id="congtys"></span></p>
+                   
+                </div>
+                <img id="logo" alt="Logo" src="">
+            </div>
+            <div>
+                <p>Trụ sở: <b><span id="truso"></span></b></p>
+                <p>Nhóm ngành nghề: <span id="nganhnghe"></span></p>
+                <p>⚡ Đã trở thành Hội Viên chính thức - Hội Doanh Nhân Thái Bình Miền Nam từ ngày:<b> <span id="data"></span></b></p>
+                <p>🌟 Chúc anh chị kết nối hiệu quả, kinh doanh thành công cùng các doanh nhân Thái Bình.</p>
+            </div>
             <div class="footer">
-                <p>Địa chỉ: 175 Khuông Việt - Phường Phú Trung - Quận Tân Phú - Thành Phố Hồ Chí Minh</p>
+                <p>Văn phòng hội: 175 Khuông Việt - Phường Phú Trung - Quận Tân Phú - Thành Phố Hồ Chí Minh</p>
                 <p>Hotline: 0879.555.655</p>
                 <p>Email: hoidnthaibinhmiennam@gmail.com</p>
             </div>
         </div>
     </div>
-    <button onclick="captureContent()">Chụp nội dung</button>
-    <script>
-        // Function to get URL parameters
-        function getUrlParameter(name) {
-          name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-          var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-          var results = regex.exec(location.search);
-          return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-        }
-    
-        // Get parameters from URL
-        var name = getUrlParameter('name');
-        var ngaysinh = getUrlParameter('ngaysinh');
-        var que = getUrlParameter('que');
-        var sdt = getUrlParameter('sdt');
-        var chucvu = getUrlParameter('chucvu');
-        var congtys = getUrlParameter('congtys');
-        var data = getUrlParameter('data');
-        // Display parameters on the page
-        document.getElementById('name').textContent = name;
-        document.getElementById('ngaysinh').textContent = ngaysinh;
-        document.getElementById('que').textContent = que;
-        document.getElementById('sdt').textContent = sdt;
-        document.getElementById('chucvu').textContent = chucvu;
-        document.getElementById('congtys').textContent = congtys;
-        document.getElementById('data').textContent = data;
-    
-      </script>
+   
 </body>
 </html>
