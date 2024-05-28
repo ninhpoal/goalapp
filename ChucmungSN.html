@@ -4,23 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon"
-        href="https://www.appsheet.com:443/fsimage.png?appid=4dc0f883-9c1c-4d4a-81aa-4bd7971b78dd&datasource=google&filename=DocId%3D1Q-DzzSK5wTHeK8QXExAKxXHHI0cTZ6pc&signature=4c1273f412297bd813f4b60a3ce84a4d8c0aa30e803762dc7b9fcfc1fa29a92d&tabl...25719472"
-        type="image/x-icon">
+    <link rel="shortcut icon" href="https://www.appsheet.com:443/fsimage.png?appid=4dc0f883-9c1c-4d4a-81aa-4bd7971b78dd&datasource=google&filename=DocId%3D1Q-DzzSK5wTHeK8QXExAKxXHHI0cTZ6pc&signature=4c1273f412297bd813f4b60a3ce84a4d8c0aa30e803762dc7b9fcfc1fa29a92d&tabl...25719472" type="image/x-icon">
     <title>Happy Birthday</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"
-        integrity="sha512-sn/GHTj+FCxK5wam7k9w4gPPm6zss4Zwl/X9wgrvGMFbnedR8lTUSLdsolDRBRzsX6N+YgG6OWyvn9qaFVXH9w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
         body {
-            font-family: 'Times New Roman', Times, serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            background-color: #f4f4f4;
         }
 
         .container {
@@ -28,65 +23,67 @@
             justify-content: center;
             align-items: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 1000px;
-            height: 620px;
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
             overflow: hidden;
+            background-color: #ffffff;
+            margin: 20px;
         }
 
         .card {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             width: 100%;
             height: 100%;
         }
 
+        .left, .right {
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
         .left {
             color: #ffffff;
-            padding: 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: url('hinh1.jpg');
-            width: 50%;
+            background: url('hinh1.jpg') no-repeat center center;
+            background-size: cover;
             text-align: center;
             border-right: 1.5px solid #ffffff;
         }
 
         .left img {
-            width: 300px;
-            height: 400px;
+            width: 200px;
+            height: 200px;
             border: 2px solid gold;
-
             border-radius: 50%;
             margin-bottom: 20px;
         }
 
         .birthday-title {
-            font-size: 40px;
+            font-size: 24px;
             font-family: 'Verdana', serif;
-            /* Apply Playfair Display font for the name */
         }
 
         .name {
-            font-size: 42px;
+            font-size: 26px;
             color: gold;
-            /* Gold color for the name */
             font-family: 'Calibri', serif;
-            /* Apply Great Vibes font for the title */
             font-weight: bolder;
             text-shadow: 5px 5px 10px gold;
-
         }
-
 
         .right {
             justify-content: center;
             padding: 25px 20px;
-            width: 50%;
-            background: url('hinh2.jpg');
+            width: 100%;
+            background: url('hinh2.jpg') no-repeat center center;
+            background-size: cover;
             color: #ffffff;
-
         }
 
         .rightnho {
@@ -94,34 +91,50 @@
             border: 5px solid #ffffff;
         }
 
-
-
         .right p {
             font-size: 14px;
-            line-height: 1;
+            line-height: 1.5;
             margin-bottom: 10px;
         }
 
-
         .logohoi {
-            width: 20%;
-            display: flex;
+            width: 50px;
+            margin-bottom: 20px;
         }
 
         .hpbd {
-            width: 50%;
-        }
-
-        .footer {
+            width: 150px;
+        }.footer {
             text-align: center;
             margin-top: 40px;
             font-size: 14px;
             color: #ffffff;
         }
+
+        @media (min-width: 768px) {
+            .card {
+                flex-direction: row;
+            }
+
+            .left, .right {
+                width: 50%;
+            }
+
+            .left img {
+                width: 300px;
+                height: 400px;
+            }
+
+            .birthday-title {
+                font-size: 40px;
+            }
+
+            .name {
+                font-size: 42px;
+            }
+        }
     </style>
     <script>
-
-
         function getUrlParameter(name) {
             name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
             var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -134,51 +147,40 @@
             var a = getUrlParameter('a');
             var linkAnh = getUrlParameter('linkAnh');
 
-
             document.getElementById('name').textContent = name;
             document.getElementById('a').textContent = a;
-            var encodedLinkAnh = encodeURIComponent(linkAnh);
-            var imageUrl = decodeURIComponent(encodedLinkAnh);
+            var imageUrl = decodeURIComponent(linkAnh);
             document.getElementById('logo').src = imageUrl;
 
             console.log("Image URL:", imageUrl);
         });
     </script>
- 
 </head>
 
 <body>
- 
     <div class="container">
         <div class="card">
             <div class="left">
-                <img id="logo" alt="Logo" src="">
-                <div class="birthday-title">Happy Birthday</div>
-                <br>
-                <div class="name"><span id="name"></span></div>
+                <img id="logo"  >
+                <div class="birthday-title">Happy Birthday</div> <br>
+                <div class="name" id="name"></div>
             </div>
             <div class="right">
                 <div class="rightnho">
                     <center><img src="assets/img/logos/logo.png" alt="Logohoi" class="logohoi"></center>
-
                     <center><img src="hpbd.png" alt="hpbd" class="hpbd"></center>
-                    <p>&emsp;Hội Doanh nhân Thái Bình miền Nam chúc mừng sinh nhật lần thứ <span id="a"></span> của Quý
-                        Hội Viên.</p>
-                    <p>&emsp;Nhân dịp này, Ban Chấp Hành Hội gửi tặng Quý Hội Viên món quà nhỏ, nhưng lại chứa đựng tình
-                        thân đoàn kết và sự gắn bó của cộng đồng doanh nhân Thái Bình.</p>
-                    <p>&emsp;Chúng tôi chân thành cảm ơn Quý Hội Viên vì những đóng góp và sự đồng hành quý báu. Chúc
-                        Quý Hội Viên luôn dồi dào sức khỏe, hạnh phúc và thành công. Chúng tôi mong rằng, Hội sẽ là động
-                        lực để bạn yêu thích tuổi mới.</p>
+                    <p>&emsp;Hội Doanh nhân Thái Bình miền Nam chúc mừng sinh nhật lần thứ <span id="a"></span> của Quý Hội Viên.</p>
+                    <p>&emsp;Nhân dịp này, Ban Chấp Hành Hội gửi tặng Quý Hội Viên món quà nhỏ, nhưng lại chứa đựng tình thân đoàn kết và sự gắn bó của cộng đồng doanh nhân Thái Bình.</p>
+                    <p>&emsp;Chúng tôi chân thành cảm ơn Quý Hội Viên vì những đóng góp và sự đồng hành quý báu. Chúc Quý Hội Viên luôn dồi dào sức khỏe, hạnh phúc và thành công. Chúng tôi mong rằng, Hội sẽ là động lực để bạn yêu thích tuổi mới.</p>
                     <p>&emsp;Chúc bạn sinh nhật vui vẻ!</p>
                     <div class="footer">
                         <p>Trân trọng!</p>
                         <p>Ban chấp hành</p>
                         <p style="margin-top: -10px;">Hội doanh nhân Thái Bình Miền Nam</p>
-                    </div>
+                    </div></div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
-
-</html>
+    </body>
+    
+    </html>
