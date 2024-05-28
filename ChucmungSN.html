@@ -8,6 +8,9 @@
         href="https://www.appsheet.com:443/fsimage.png?appid=4dc0f883-9c1c-4d4a-81aa-4bd7971b78dd&datasource=google&filename=DocId%3D1Q-DzzSK5wTHeK8QXExAKxXHHI0cTZ6pc&signature=4c1273f412297bd813f4b60a3ce84a4d8c0aa30e803762dc7b9fcfc1fa29a92d&tabl...25719472"
         type="image/x-icon">
     <title>Happy Birthday</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"
+        integrity="sha512-sn/GHTj+FCxK5wam7k9w4gPPm6zss4Zwl/X9wgrvGMFbnedR8lTUSLdsolDRBRzsX6N+YgG6OWyvn9qaFVXH9w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
@@ -54,7 +57,7 @@
             width: 300px;
             height: 400px;
             border: 2px solid gold;
-            
+
             border-radius: 50%;
             margin-bottom: 20px;
         }
@@ -73,7 +76,7 @@
             /* Apply Great Vibes font for the title */
             font-weight: bolder;
             text-shadow: 5px 5px 10px gold;
-            
+
         }
 
 
@@ -111,12 +114,13 @@
 
         .footer {
             text-align: center;
-            margin-top: 40px;font-size: 14px;
+            margin-top: 40px;
+            font-size: 14px;
             color: #ffffff;
         }
     </style>
     <script>
-       
+
 
         function getUrlParameter(name) {
             name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
@@ -140,10 +144,32 @@
             console.log("Image URL:", imageUrl);
         });
     </script>
+    <script>
+        const exportButton = document.getElementById('exportButton');
+        exportButton.addEventListener('click', () => {
+            // Lấy nội dung HTML của trang web
+            const htmlContent = document.documentElement.outerHTML;
 
+            // Tạo một đối tượng Canvas
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            // Chuyển đổi nội dung HTML thành hình ảnh
+            html2canvas(htmlContent).then(canvas => {
+                // Tạo một liên kết tải xuống cho hình ảnh
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'export.png';
+
+                // Click vào liên kết để tải xuống hình ảnh
+                link.click();
+            });
+        });
+    </script>
 </head>
 
 <body>
+    <button id="exportButton">Xuất thành hình ảnh</button>
     <div class="container">
         <div class="card">
             <div class="left">
@@ -154,10 +180,11 @@
             </div>
             <div class="right">
                 <div class="rightnho">
-                    <center><img src="assets/img/logos/logo.png"  alt="Logohoi" class="logohoi"></center>
+                    <center><img src="assets/img/logos/logo.png" alt="Logohoi" class="logohoi"></center>
 
                     <center><img src="hpbd.png" alt="hpbd" class="hpbd"></center>
-                    <p>&emsp;Hội Doanh nhân Thái Bình miền Nam chúc mừng sinh nhật lần thứ <span id="a"></span> của Quý Hội Viên.</p>
+                    <p>&emsp;Hội Doanh nhân Thái Bình miền Nam chúc mừng sinh nhật lần thứ <span id="a"></span> của Quý
+                        Hội Viên.</p>
                     <p>&emsp;Nhân dịp này, Ban Chấp Hành Hội gửi tặng Quý Hội Viên món quà nhỏ, nhưng lại chứa đựng tình
                         thân đoàn kết và sự gắn bó của cộng đồng doanh nhân Thái Bình.</p>
                     <p>&emsp;Chúng tôi chân thành cảm ơn Quý Hội Viên vì những đóng góp và sự đồng hành quý báu. Chúc
