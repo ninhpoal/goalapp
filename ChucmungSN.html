@@ -144,32 +144,11 @@
             console.log("Image URL:", imageUrl);
         });
     </script>
-    <script>
-        const exportButton = document.getElementById('exportButton');
-        exportButton.addEventListener('click', () => {
-            // Lấy nội dung HTML của trang web
-            const htmlContent = document.documentElement.outerHTML;
-
-            // Tạo một đối tượng Canvas
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-
-            // Chuyển đổi nội dung HTML thành hình ảnh
-            html2canvas(htmlContent).then(canvas => {
-                // Tạo một liên kết tải xuống cho hình ảnh
-                const link = document.createElement('a');
-                link.href = canvas.toDataURL('image/png');
-                link.download = 'export.png';
-
-                // Click vào liên kết để tải xuống hình ảnh
-                link.click();
-            });
-        });
-    </script>
+ 
 </head>
 
 <body>
-    <button id="exportButton">Xuất thành hình ảnh</button>
+ 
     <div class="container">
         <div class="card">
             <div class="left">
