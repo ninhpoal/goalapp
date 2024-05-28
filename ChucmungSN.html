@@ -127,12 +127,12 @@
 
         document.addEventListener('DOMContentLoaded', (event) => {
             var name = getUrlParameter('name');
-
+            var a = getUrlParameter('a');
             var linkAnh = getUrlParameter('linkAnh');
 
 
             document.getElementById('name').textContent = name;
-
+            document.getElementById('a').textContent = a;
             var encodedLinkAnh = encodeURIComponent(linkAnh);
             var imageUrl = decodeURIComponent(encodedLinkAnh);
             document.getElementById('logo').src = imageUrl;
