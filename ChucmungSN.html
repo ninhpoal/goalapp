@@ -140,36 +140,71 @@
     </style>
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script>
-        function getUrlParameter(name) {
-            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-            var regex = new RegExp('[\\?&&]' + name + '=([^&&#]*)');
-            var results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-        }
+       function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
 
-        document.addEventListener('DOMContentLoaded', (event) => {
-            var name = getUrlParameter('name');
-            var a = getUrlParameter('a');
-            var linkAnh = getUrlParameter('linkAnh');
+document.addEventListener('DOMContentLoaded', (event) => {
+    var name = getUrlParameter('name');
+    var a = getUrlParameter('a');
+    var linkAnh = getUrlParameter('linkAnh');
 
-            document.getElementById('name').textContent = name;
-            document.getElementById('a').textContent = a;
-            var imageUrl = decodeURIComponent(linkAnh);
-            document.getElementById('logo').src = imageUrl;
+    console.log("Name:", name);
+    console.log("A:", a);
+    console.log("LinkAnh:", linkAnh);
 
-            console.log("Image URL:", imageUrl);
+    document.getElementById('name').textContent = name;
+    document.getElementById('a').textContent = a;
 
-            // Thêm sự kiện sau khi DOM đã hoàn tất việc tải
-            document.getElementById('capture-btn').addEventListener('click', function () {
-                html2canvas(document.querySelector('.container')).then(function (canvas) {
-                    // Create an <a> element for downloading the image
-                    let link = document.createElement('a');
-                    link.download = name + 'hpbd.png';
-                    link.href = canvas.toDataURL();
-                    link.click();
+    var imageUrl = decodeURIComponent(linkAnh);
+    console.log("Decoded Image URL:", imageUrl);
+
+    var logoElement = document.getElementById('logo');
+    if (logoElement && logoElement.tagName === 'IMG') {
+        logoElement.crossOrigin = "Anonymous"; // Thêm điều này để giải quyết vấn đề CORS
+        logoElement.src = imageUrl;
+
+        logoElement.onload = function() {
+            console.log("Image loaded successfully");
+        };
+
+        logoElement.onerror = function() {
+            console.error("Error loading image. Attempting to convert image to data URL.");
+
+            // Sử dụng giải pháp dự phòng để tải hình ảnh thành data URL
+            fetch(imageUrl)
+                .then(response => response.blob())
+                .then(blob => {
+                    let reader = new FileReader();
+                    reader.onload = function() {
+                        logoElement.src = reader.result;
+                        console.log("Image loaded as data URL successfully");
+                    };
+                    reader.readAsDataURL(blob);
+                })
+                .catch(error => {
+                    console.error("Failed to convert image to data URL:", error);
                 });
-            });
+        };
+    } else {
+        console.error("Element with ID 'logo' is not found or is not an <img> tag");
+    }
+
+    document.getElementById('capture-btn').addEventListener('click', function () {
+        html2canvas(document.querySelector('.container')).then(function (canvas) {
+            let link = document.createElement('a');
+            link.download = name + 'hpbd.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }).catch(function (error) {
+            console.error("Error capturing the screen:", error);
         });
+    });
+});
+
 
     </script>
 </head>
