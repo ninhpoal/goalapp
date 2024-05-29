@@ -142,7 +142,7 @@
     <script>
         function getUrlParameter(name) {
             name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var regex = new RegExp('[\\?&&]' + name + '=([^&&#]*)');
             var results = regex.exec(location.search);
             return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         }
@@ -152,49 +152,24 @@
             var a = getUrlParameter('a');
             var linkAnh = getUrlParameter('linkAnh');
 
-            console.log("Name:", name);
-            console.log("A:", a);
-            console.log("LinkAnh:", linkAnh);
-
             document.getElementById('name').textContent = name;
             document.getElementById('a').textContent = a;
-
             var imageUrl = decodeURIComponent(linkAnh);
-            console.log("Decoded Image URL:", imageUrl);
+            document.getElementById('logo').src = linkAnh;
 
-            // Sử dụng cors-anywhere để vượt qua lỗi CORS
-            var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-            var proxiedImageUrl = proxyUrl + imageUrl;
+            console.log("Image URL:", linkAnh);
 
-            var logoElement = document.getElementById('logo');
-            if (logoElement && logoElement.tagName === 'IMG') {
-                logoElement.crossOrigin = "Anonymous";
-                logoElement.src = proxiedImageUrl;
-
-                logoElement.onload = function () {
-                    console.log("Image loaded successfully");
-                };
-
-                logoElement.onerror = function () {
-                    console.error("Error loading image");
-                };
-            } else {
-                console.error("Element with ID 'logo' is not found or is not an <img> tag");
-            }
-
+            // Thêm sự kiện sau khi DOM đã hoàn tất việc tải
             document.getElementById('capture-btn').addEventListener('click', function () {
                 html2canvas(document.querySelector('.container')).then(function (canvas) {
+                    // Create an <a> element for downloading the image
                     let link = document.createElement('a');
                     link.download = name + 'hpbd.png';
                     link.href = canvas.toDataURL();
                     link.click();
-                }).catch(function (error) {
-                    console.error("Error capturing the screen:", error);
                 });
             });
         });
-
-
 
     </script>
 </head>
