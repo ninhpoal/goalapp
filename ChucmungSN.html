@@ -140,70 +140,60 @@
     </style>
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script>
-       function getUrlParameter(name) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    var results = regex.exec(location.search);
-    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-}
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    var name = getUrlParameter('name');
-    var a = getUrlParameter('a');
-    var linkAnh = getUrlParameter('linkAnh');
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var name = getUrlParameter('name');
+            var a = getUrlParameter('a');
+            var linkAnh = getUrlParameter('linkAnh');
 
-    console.log("Name:", name);
-    console.log("A:", a);
-    console.log("LinkAnh:", linkAnh);
+            console.log("Name:", name);
+            console.log("A:", a);
+            console.log("LinkAnh:", linkAnh);
 
-    document.getElementById('name').textContent = name;
-    document.getElementById('a').textContent = a;
+            document.getElementById('name').textContent = name;
+            document.getElementById('a').textContent = a;
 
-    var imageUrl = decodeURIComponent(linkAnh);
-    console.log("Decoded Image URL:", imageUrl);
+            var imageUrl = decodeURIComponent(linkAnh);
+            console.log("Decoded Image URL:", imageUrl);
 
-    var logoElement = document.getElementById('logo');
-    if (logoElement && logoElement.tagName === 'IMG') {
-        logoElement.crossOrigin = "Anonymous"; // Thêm điều này để giải quyết vấn đề CORS
-        logoElement.src = imageUrl;
+            // Sử dụng cors-anywhere để vượt qua lỗi CORS
+            var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+            var proxiedImageUrl = proxyUrl + imageUrl;
 
-        logoElement.onload = function() {
-            console.log("Image loaded successfully");
-        };
+            var logoElement = document.getElementById('logo');
+            if (logoElement && logoElement.tagName === 'IMG') {
+                logoElement.crossOrigin = "Anonymous";
+                logoElement.src = proxiedImageUrl;
 
-        logoElement.onerror = function() {
-            console.error("Error loading image. Attempting to convert image to data URL.");
+                logoElement.onload = function () {
+                    console.log("Image loaded successfully");
+                };
 
-            // Sử dụng giải pháp dự phòng để tải hình ảnh thành data URL
-            fetch(imageUrl)
-                .then(response => response.blob())
-                .then(blob => {
-                    let reader = new FileReader();
-                    reader.onload = function() {
-                        logoElement.src = reader.result;
-                        console.log("Image loaded as data URL successfully");
-                    };
-                    reader.readAsDataURL(blob);
-                })
-                .catch(error => {
-                    console.error("Failed to convert image to data URL:", error);
+                logoElement.onerror = function () {
+                    console.error("Error loading image");
+                };
+            } else {
+                console.error("Element with ID 'logo' is not found or is not an <img> tag");
+            }
+
+            document.getElementById('capture-btn').addEventListener('click', function () {
+                html2canvas(document.querySelector('.container')).then(function (canvas) {
+                    let link = document.createElement('a');
+                    link.download = name + 'hpbd.png';
+                    link.href = canvas.toDataURL();
+                    link.click();
+                }).catch(function (error) {
+                    console.error("Error capturing the screen:", error);
                 });
-        };
-    } else {
-        console.error("Element with ID 'logo' is not found or is not an <img> tag");
-    }
-
-    document.getElementById('capture-btn').addEventListener('click', function () {
-        html2canvas(document.querySelector('.container')).then(function (canvas) {
-            let link = document.createElement('a');
-            link.download = name + 'hpbd.png';
-            link.href = canvas.toDataURL();
-            link.click();
-        }).catch(function (error) {
-            console.error("Error capturing the screen:", error);
+            });
         });
-    });
-});
+
 
 
     </script>
