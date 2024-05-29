@@ -155,22 +155,27 @@
             document.getElementById('name').textContent = name;
             document.getElementById('a').textContent = a;
             var imageUrl = decodeURIComponent(linkAnh);
-            document.getElementById('logo').src = linkAnh;
+            var logoImg = document.getElementById('logo');
+            logoImg.src = linkAnh;
 
-            console.log("Image URL:", linkAnh);
+            logoImg.onload = function() {
+                console.log("Image loaded:", linkAnh);
 
-            // Thêm sự kiện sau khi DOM đã hoàn tất việc tải
-            document.getElementById('capture-btn').addEventListener('click', function () {
-                html2canvas(document.querySelector('.container')).then(function (canvas) {
-                    // Create an <a> element for downloading the image
-                    let link = document.createElement('a');
-                    link.download = name + 'hpbd.png';
-                    link.href = canvas.toDataURL();
-                    link.click();
+                document.getElementById('capture-btn').addEventListener('click', function () {
+                    html2canvas(document.querySelector('.container')).then(function (canvas) {
+                        // Create an <a> element for downloading the image
+                        let link = document.createElement('a');
+                        link.download = name + 'hpbd.png';
+                        link.href = canvas.toDataURL();
+                        link.click();
+                    });
                 });
-            });
-        });
+            };
 
+            logoImg.onerror = function() {
+                console.error("Error loading image:", linkAnh);
+            };
+        });
     </script>
 </head>
 
