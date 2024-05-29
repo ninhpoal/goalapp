@@ -147,18 +147,26 @@
             return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         }
 
-        document.addEventListener('DOMContentLoaded', (event) => {
+        document.addEventListener('DOMContentLoaded', async function (event) {
             var name = getUrlParameter('name');
             var a = getUrlParameter('a');
             var linkAnh = getUrlParameter('linkAnh');
 
             document.getElementById('name').textContent = name;
             document.getElementById('a').textContent = a;
-            var imageUrl = decodeURIComponent(linkAnh);
-            var logoImg = document.getElementById('logo');
-            logoImg.src = linkAnh;
+            const response = await fetch(linkAnh);
+            const blob = await response.blob();
 
-            logoImg.onload = function() {
+            // Create a blob URL
+            const blobUrl = URL.createObjectURL(blob);
+
+            // Get the image element
+            const imgElement = document.getElementById('logo');
+
+            // Set the src of the image element to the blob URL
+            imgElement.src = blobUrl;
+
+            logoImg.onload = function () {
                 console.log("Image loaded:", linkAnh);
 
                 document.getElementById('capture-btn').addEventListener('click', function () {
@@ -172,7 +180,7 @@
                 });
             };
 
-            logoImg.onerror = function() {
+            logoImg.onerror = function () {
                 console.error("Error loading image:", linkAnh);
             };
         });
