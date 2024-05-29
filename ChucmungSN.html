@@ -147,53 +147,33 @@
             return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         }
 
-        document.addEventListener('DOMContentLoaded', async function (event) {
+        document.addEventListener('DOMContentLoaded', (event) => {
             var name = getUrlParameter('name');
             var a = getUrlParameter('a');
             var linkAnh = getUrlParameter('linkAnh');
 
             document.getElementById('name').textContent = name;
             document.getElementById('a').textContent = a;
-            try {
-                // Fetch the image
-                const response = await fetch(linkAnh, { mode: 'cors' });
-
-                // Check if the fetch was successful
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-
-                // Convert the response to a blob
-                const blob = await response.blob();
-
-                // Create a blob URL
-                const blobUrl = URL.createObjectURL(blob);
-
-                // Get the image element
-                const imgElement = document.getElementById('logo');
-
-                // Set the src of the image element to the blob URL
-                imgElement.src = blobUrl;
-            } catch (error) {
-                console.error('There was a problem with the fetch operation:', error);
-            }
+            var imageUrl = decodeURIComponent(linkAnh);
+            var logoImg = document.getElementById('logo');
+            logoImg.src = linkAnh;
 
             logoImg.onload = function () {
-                console.log("Image loaded:", linkAnh);
+                if (logoImg.complete) {
+                    console.log("Image loaded:", linkAnh);
 
-                document.getElementById('capture-btn').addEventListener('click', function () {
-                    html2canvas(document.querySelector('.container')).then(function (canvas) {
-                        // Create an <a> element for downloading the image
-                        let link = document.createElement('a');
-                        link.download = name + 'hpbd.png';
-                        link.href = canvas.toDataURL();
-                        link.click();
+                    document.getElementById('capture-btn').addEventListener('click', function () {
+                        html2canvas(document.querySelector('.container')).then(function (canvas) {
+                            // Create an <a> element for downloading the image
+                            let link = document.createElement('a');
+                            link.download = name + 'hpbd.png';
+                            link.href = canvas.toDataURL();
+                            link.click();
+                        });
                     });
-                });
-            };
-
-            logoImg.onerror = function () {
-                console.error("Error loading image:", linkAnh);
+                } else {
+                    console.error("Error loading image:", linkAnh);
+                }
             };
         });
     </script>
