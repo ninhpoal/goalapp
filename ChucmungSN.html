@@ -154,17 +154,29 @@
 
             document.getElementById('name').textContent = name;
             document.getElementById('a').textContent = a;
-            const response = await fetch(linkAnh);
-            const blob = await response.blob();
+            try {
+                // Fetch the image
+                const response = await fetch(linkAnh, { mode: 'cors' });
 
-            // Create a blob URL
-            const blobUrl = URL.createObjectURL(blob);
+                // Check if the fetch was successful
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
 
-            // Get the image element
-            const imgElement = document.getElementById('logo');
+                // Convert the response to a blob
+                const blob = await response.blob();
 
-            // Set the src of the image element to the blob URL
-            imgElement.src = blobUrl;
+                // Create a blob URL
+                const blobUrl = URL.createObjectURL(blob);
+
+                // Get the image element
+                const imgElement = document.getElementById('logo');
+
+                // Set the src of the image element to the blob URL
+                imgElement.src = blobUrl;
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
 
             logoImg.onload = function () {
                 console.log("Image loaded:", linkAnh);
