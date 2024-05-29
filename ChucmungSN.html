@@ -138,7 +138,7 @@
             }
         }
     </style>
-       <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script>
         function getUrlParameter(name) {
             name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
@@ -158,16 +158,19 @@
             document.getElementById('logo').src = imageUrl;
 
             console.log("Image URL:", imageUrl);
-        });
-        document.getElementById('capture-btn').addEventListener('click', function () {
-            html2canvas(document.querySelector('.container')).then(function (canvas) {
-                // Create an <a> element for downloading the image
-                let link = document.createElement('a');
-                link.download = name+'hpbd.png';
-                link.href = canvas.toDataURL();
-                link.click();
+
+            // Thêm sự kiện sau khi DOM đã hoàn tất việc tải
+            document.getElementById('capture-btn').addEventListener('click', function () {
+                html2canvas(document.querySelector('.container')).then(function (canvas) {
+                    // Create an <a> element for downloading the image
+                    let link = document.createElement('a');
+                    link.download = name + 'hpbd.png';
+                    link.href = canvas.toDataURL();
+                    link.click();
+                });
             });
         });
+
     </script>
 </head>
 
