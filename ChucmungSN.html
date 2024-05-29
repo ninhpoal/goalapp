@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/logos/logo.png" type="image/x-icon">
     <title>Happy Birthday</title>
     <style>
         body {
@@ -38,7 +38,8 @@
             height: 100%;
         }
 
-        .left, .right {
+        .left,
+        .right {
             padding: 20px;
             width: 100%;
             box-sizing: border-box;
@@ -104,7 +105,9 @@
 
         .hpbd {
             width: 150px;
-        }.footer {
+        }
+
+        .footer {
             text-align: center;
             margin-top: 40px;
             font-size: 14px;
@@ -116,7 +119,8 @@
                 flex-direction: row;
             }
 
-            .left, .right {
+            .left,
+            .right {
                 width: 50%;
             }
 
@@ -134,6 +138,7 @@
             }
         }
     </style>
+       <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script>
         function getUrlParameter(name) {
             name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
@@ -154,6 +159,15 @@
 
             console.log("Image URL:", imageUrl);
         });
+        document.getElementById('capture-btn').addEventListener('click', function () {
+            html2canvas(document.querySelector('.container')).then(function (canvas) {
+                // Create an <a> element for downloading the image
+                let link = document.createElement('a');
+                link.download = name+'hpbd.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        });
     </script>
 </head>
 
@@ -161,7 +175,7 @@
     <div class="container">
         <div class="card">
             <div class="left">
-                <img id="logo"  >
+                <img id="logo">
                 <div class="birthday-title">Happy Birthday</div> <br>
                 <div class="name" id="name"></div>
             </div>
@@ -169,18 +183,24 @@
                 <div class="rightnho">
                     <center><img src="assets/img/logos/logo.png" alt="Logohoi" class="logohoi"></center>
                     <center><img src="hpbd.png" alt="hpbd" class="hpbd"></center>
-                    <p>&emsp;Hội Doanh nhân Thái Bình miền Nam chúc mừng sinh nhật lần thứ <span id="a"></span> của Quý Hội Viên.</p>
-                    <p>&emsp;Nhân dịp này, Ban Chấp Hành Hội gửi tặng Quý Hội Viên món quà nhỏ, nhưng lại chứa đựng tình thân đoàn kết và sự gắn bó của cộng đồng doanh nhân Thái Bình.</p>
-                    <p>&emsp;Chúng tôi chân thành cảm ơn Quý Hội Viên vì những đóng góp và sự đồng hành quý báu. Chúc Quý Hội Viên luôn dồi dào sức khỏe, hạnh phúc và thành công. Chúng tôi mong rằng, Hội sẽ là động lực để bạn yêu thích tuổi mới.</p>
+                    <p>&emsp;Hội Doanh nhân Thái Bình miền Nam chúc mừng sinh nhật lần thứ <span id="a"></span> của Quý
+                        Hội Viên.</p>
+                    <p>&emsp;Nhân dịp này, Ban Chấp Hành Hội gửi tặng Quý Hội Viên món quà nhỏ, nhưng lại chứa đựng tình
+                        thân đoàn kết và sự gắn bó của cộng đồng doanh nhân Thái Bình.</p>
+                    <p>&emsp;Chúng tôi chân thành cảm ơn Quý Hội Viên vì những đóng góp và sự đồng hành quý báu. Chúc
+                        Quý Hội Viên luôn dồi dào sức khỏe, hạnh phúc và thành công. Chúng tôi mong rằng, Hội sẽ là động
+                        lực để bạn yêu thích tuổi mới.</p>
                     <p>&emsp;Chúc bạn sinh nhật vui vẻ!</p>
                     <div class="footer">
                         <p>Trân trọng!</p>
                         <p>Ban chấp hành</p>
                         <p style="margin-top: -10px;">Hội doanh nhân Thái Bình Miền Nam</p>
-                    </div></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
-    
-    </html>
+    </div>
+    <button id="capture-btn">Chụp trang này</button>
+</body>
+
+</html>
