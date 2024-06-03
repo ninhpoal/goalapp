@@ -106,9 +106,9 @@
                     <div class="payment-method mb-30">
                       <h3 class="inv-title-1">Phương thức thanh toán</h3>
                       <ul class="payment-method-list-1 text-14">
-                        <li><strong>Số tài khoản:</strong> 345678917</li>
-                        <li><strong>Chủ tài khoản:</strong> Tô Thị Phương</li>
-                        <li><strong>Ngân hàng:</strong> MB Bank</li>
+                        <li><strong>Nguồn chi (TM/ Số TK):</strong> <span id="stk"></span></li>
+                        <li><strong>Nguồn nhận (TM/ Số TK):</strong> <span id="nhan"></span></li>
+                    
                       </ul>
                     </div>
                   </div>
@@ -161,6 +161,8 @@
     var sotien = getUrlParameter('sotien');
     var nguoinop = getUrlParameter('nguoinop');
     var nguoinhan = getUrlParameter('nguoinhan');
+    var stk = getUrlParameter('stk');
+    var nhan = getUrlParameter('nhan');
     // Display parameters on the page
     document.getElementById('phanloai').textContent = `Phiếu ${phanloai}`;
     document.getElementById('sochungtu').textContent = sochungtu;
@@ -169,6 +171,8 @@
     document.getElementById('sotien').textContent = sotien;
     document.getElementById('nguoinop').textContent = nguoinop;
     document.getElementById('nguoinhan').textContent = nguoinhan;
+    document.getElementById('stk').textContent = stk;
+    document.getElementById('nhan').textContent = nhan;
 
   </script>
   <script src="assets/js/jquery.min.js"></script>
