@@ -113,6 +113,19 @@
             font-size: 14px;
             color: #ffffff;
         }
+        @media print {
+            #in * {
+                visibility: hidden;
+            }
+
+            #footer,
+            #footer,
+            #content * {
+                visibility: visible;
+            }
+
+            /* Nếu bạn muốn hiện các phần khác của nội dung, hãy tùy chỉnh các selector */
+        }
 
         @media (min-width: 768px) {
             .card {
@@ -180,7 +193,9 @@
 </head>
 
 <body>
-    <div class="container">
+    <div id="in"><button type="button" class="btn btn-outline-primary" onclick="window.print()">In hoặc xuất
+        PDF</button>
+    <div class="container" id="content">
         <div class="card">
             <div class="left">
                 <img id="logo" alt="avata" src="">
@@ -208,7 +223,7 @@
             </div>
         </div>
     </div>
-    <button id="capture-btn">Chụp trang này</button>
+    
 </body>
 
 </html>
