@@ -558,7 +558,7 @@ table th{
 }
 
 .invoice-2 .inv-title-1{
-    color: #c24310;
+    color: #0e56c2;
     margin-bottom: 5px;
 }
 
@@ -584,7 +584,7 @@ table th{
     top: 0;
     clip-path: polygon(0 0, 100% 0, 100% 0%, 90% 100%, 0% 100%);
     z-index: -9;
-    background-image: linear-gradient(to bottom, #e7827b, #a3300d);
+    background-image: linear-gradient(to bottom, #0e56c2, #f4f4f4);
 }
 
 .invoice-2 .invoice-logo .logo{
@@ -593,7 +593,7 @@ table th{
     clip-path: polygon(0 0, 100% 0, 100% 0%, 85% 100%, 0% 100%);
     height: 150px;
     z-index: 999;
-    background-image: linear-gradient(to bottom,  #eeb4b4, #f4f4f4);
+    background-image: linear-gradient(to bottom,  #0e56c2, #f4f4f4);
 }
 
 .invoice-2 .invoice-logo img {
@@ -673,16 +673,17 @@ table th{
 }
 
 .invoice-2 .invoice-contact{
-    background-image: linear-gradient(to bottom, #e7827b, #a3300d);
+    background-image: linear-gradient(to bottom, #0e56c2, #ffffff);
     padding: 30px 50px 20px;
 }
 
 .invoice-2 .contact-info a {
     margin:0 30px 10px 0;
-    color: #fff;
+    color: #0e0e0e;
     font-size: 14px;
     float: left;
     line-height: 50px;
+    font-weight: bold;
 }
 
 .invoice-2 .contact-info a i{
@@ -707,7 +708,7 @@ table th{
 
 .invoice-2 .inv-header-1 {
     font-weight: 600;
-    color: #e0260e;
+    color: #0e56c2;
     font-size: 30px;
 }
 
