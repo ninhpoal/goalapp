@@ -205,7 +205,7 @@ table th{
 }
 
 .btn-download {
-    background: #dd825e;
+    background: #0e56c2;
 }
 
 .btn-download:after {
@@ -673,7 +673,7 @@ table th{
 }
 
 .invoice-2 .invoice-contact{
-    background-image: linear-gradient(to bottom, #0e56c2, #ffffff);
+    background-image: linear-gradient(to bottom, #9bbbeb, #0e56c2);
     padding: 30px 50px 20px;
 }
 
